@@ -1,0 +1,3 @@
+api/allEvents
+api/event
+api/event/registerUser
