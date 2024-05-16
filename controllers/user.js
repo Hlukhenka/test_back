@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
   const result = await User.create({ name, email, birth, aboutEvent });
 
   const event = await Event.findById(_id);
-  event.users.push(user);
+  event.users.push(result);
   await event.save();
 
   res.status(201).json(result);
