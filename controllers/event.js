@@ -8,11 +8,8 @@ const allEvents = async (req, res) => {
 };
 
 const event = async (req, res) => {
-  const { _id } = req.body;
-
-  const result = await Event.findOne({ _id });
-
-  console.log({ result });
+  const { id } = req.params;
+  const result = await Event.findById(id);
 
   res.status(200).json(result);
 };
