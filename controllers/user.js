@@ -17,6 +17,8 @@ const registerUser = async (req, res) => {
   event.users.push(result);
   await event.save();
 
+  console.log(result);
+
   res.status(201).json(result);
 };
 

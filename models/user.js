@@ -6,12 +6,19 @@ const userSchema = new Schema(
   {
     name: {
       type: String,
+      required: true,
     },
     email: {
       type: String,
+      required: true,
     },
     birth: {
       type: String,
+      required: true,
+    },
+    aboutEvent: {
+      type: String,
+      required: true,
     },
     events: {
       type: Schema.Types.ObjectId,
