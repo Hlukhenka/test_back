@@ -8,9 +8,9 @@ const allEvents = async (req, res) => {
 };
 
 const event = async (req, res) => {
-  const id = req.body;
+  const {_id} = req.body;
 
-  const result = await Event.findById(id);
+  const result = await Event.findById(_id);
 
   res.status(200).json(result);
 };
