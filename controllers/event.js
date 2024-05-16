@@ -12,9 +12,9 @@ const event = async (req, res) => {
 
   const result = await Event.findOne({ _id });
 
-  console.log(result);
+  console.log({ result });
 
-  res.status(200).json( result );
+  res.status(200).json(result);
 };
 
 const addEvent = async (req, res) => {
