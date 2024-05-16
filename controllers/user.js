@@ -11,20 +11,13 @@ const registerUser = async (req, res) => {
     throw HttpError(409, 'Email alredy in use');
   }
 
-  const newUser = {
-    name,
-    email,
-    birth,
-    aboutEvent,
-  };
-
-  await User.create(newUser);
+  const result = await User.create({ name, email, birth, aboutEvent });
 
   const event = await Event.findById(_id);
   event.users.push(user);
   await event.save();
 
-  res.status(201).json(newUser);
+  res.status(201).json(result);
 };
 
 module.exports = {
