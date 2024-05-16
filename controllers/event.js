@@ -2,7 +2,11 @@ const { ctrlWrapper } = require('../helpers');
 const Event = require('../models/event');
 
 const allEvents = async (req, res) => {
-  const events = await Event.find();
+  const page = parseInt(req.query.page) || 1;
+  const limit = 6;
+  const skip = (page - 1) * limit;
+
+  const events = await Event.find().skip(skip).limit(limit);
 
   res.status(200).json({ events });
 };
